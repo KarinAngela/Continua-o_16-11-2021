@@ -1,4 +1,4 @@
-package application.controllers;
+package application.controllers;// pacote responsável por fazer a intermediação 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +49,13 @@ public String formDelete(Model model,@PathVariable int id){
      model.addAttribute("livro",livro.get());
  
     return "/livro/delete.jsp";
+    
+
+}
+@RequestMapping(value="/delete",method=RequestMethod.POST)
+public String confirmDelete(@RequestParam("id") int id){
+    livrosRepo.deleteById(id);
+        return "redirect:/livro/list";
     
 
 }
