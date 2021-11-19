@@ -2,7 +2,7 @@ package application.controllers;// pacote responsável por fazer a intermediaç�
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Controller; <!-- IMPORTAÇÃO DO CONTROLLER QUE É RESPONSÁVEL POR RECEBER AS REQUISIÇÕES DO USUÁRIOS-->
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
