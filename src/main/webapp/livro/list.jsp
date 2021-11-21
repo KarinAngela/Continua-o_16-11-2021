@@ -5,11 +5,11 @@
     <head> <!-- FINALIZA A TAG HEAD-->
         <meta charset="utf-8" /> <!-- DEFINE A CODIFICAÇÃO COMO UTF-8-->
         <title>Livros</title> <!-- DEFINE O TÍTULO DO DOCUMENTO-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  /*é usada pra configurar o bootsrap no documento jsp*/
 
     </head> <!-- FINALIZA A TAG HEAD-->
     <body> <!-- DEFINE O CORPO DO DOCUMENTO-->
-        <main class="container">
+        <main class="container"> <!--DEFINE O CONTEUDO PRINCIPAL DENTRO DO BODY-->
             <h1>Livros</h1> <!-- EXIBE UM TITULO-->
             <a href="/livro/insert" class="btn btn-primary">Novo livro</a>
         <table> <!--DEFINE UMA TABELA-->

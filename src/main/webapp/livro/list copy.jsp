@@ -9,14 +9,14 @@
     <body> <!-- FINALIZA O CORPO DO DOCUMENTO-->
        <h1>Novo Livro/h1> <!-- EXIBE UM TITULO-->
            <hr>  <!-- MOSTRA UMA LINHA HORIZONTAL-->
-           <form action="insert" method="post">
-               <label for="titulo">titulo</label>
+           <form action="insert" method="post"> <!-- DECLARA UM FORMULÁRIO COM MÉTODO POST-->
+               <label for="titulo">titulo</label> <!-- CRIA LEGENDA PARA UM ITEM EM UMA INTERFACE DE USUÁRIO, FOR ELEMENTO ID DE UM FORMULÁRIO RELACIONADO COM LABELABLE NO MESMO DOCUMENTO COMO ELEMENTO LABEL-->
                <input type="test" name="titulo"/> <!-- CRIA UM CONTROLE DE FORMULÁRIO NA TELA-->
-               <a href="/livro/list">Voltar</a> 
+               <a href="/livro/list">Voltar</a>  <!-- ESTABELECE ESTILIZADA BOOTSTRAP -->
                input type="submit" value+"Salvar"/> <!-- CRIA UM CONTROLE DE FORMULÁRIO NA TELA-->
            </form> <!-- FINALIZA O FORMULARIO-->
 
-        <h1>Lista de livros. Luciana Martessi</h1>
+        <h1>Lista de livros. Luciana Martessi</h1> <!-- EXIBE UM TITULO-->
     </body> <!-- FINALIZA O CORPO DO DOCUMENTO-->
 </html>  <!-- FINALIZA O DOCUMENTO HTML-->
 
