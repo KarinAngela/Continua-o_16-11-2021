@@ -20,16 +20,16 @@ public class LivroController {
     @RequestMapping("/list")
     public String list(Model model){
         model.addAttribute("livros", livrosRepo.findAll());
-        return "list.jsp";
+        return "list.jsp"; <!-- finaliza a execução de uma função e especifica os valores que devem ser retonados para onde a função foi chamada -->
         
     }
     public String listar(){
-        return "livro/list.jsp";
+        return "livro/list.jsp"; <!-- finaliza a execução de uma função e especifica os valores que devem ser retonados para onde a função foi chamada -->
     }
 
 @RequestMapping("/insert")
 public String formInsert(){
-    return "insert.jsp";
+    return "insert.jsp"; <!-- finaliza a execução de uma função e especifica os valores que devem ser retonados para onde a função foi chamada -->
 
 }
 @RequestMapping(value="/insert",method=RequestMethod.POST)
@@ -38,7 +38,7 @@ public String saveInsert(@RequestParam("titulo")String titulo){
     Livro livro=new Livro();
     livro.setTitulo(titulo);
     livrosRepo.save(livro);
-    return "redirect:/livro/list";
+    return "redirect:/livro/list"; <!-- finaliza a execução de uma função e especifica os valores que devem ser retonados para onde a função foi chamada -->
 
 }
 @RequestMapping("/delete/{id}")
@@ -48,7 +48,7 @@ public String formDelete(Model model,@PathVariable int id){
         return "redirect:/livro/list";
      model.addAttribute("livro",livro.get());
  
-    return "/livro/delete.jsp";
+    return "/livro/delete.jsp"; <!-- finaliza a execução de uma função e especifica os valores que devem ser retonados para onde a função foi chamada -->
     
 
 }

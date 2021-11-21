@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
     @RequestMapping(method=RequestMethod.GET)
     public String index() {
-        return "home/index.jsp";
+        return "home/index.jsp"; <!-- finaliza a execução de uma função e especifica os valores que devem ser retonados para onde a função foi chamada -->
     }
 }

@@ -1,4 +1,4 @@
-image: gitpod/workspace-mysql
+image: gitpod/workspace-mysql #CONFIGURANDO A IMAGEM DO GITPOD PARA INCIAR COM O MYSQL
 
-tasks:
-  - init: mysql -u root -e "CREATE DATABASE applicationdb"
+tasks: #ABRE A LISTA DE TAREFAS
+  - init: mysql -u root -e "CREATE DATABASE applicationdb" # TAREFA, AO INCIAR O AMIENTE QUE ACESSA O USURARIO (ROOT) 

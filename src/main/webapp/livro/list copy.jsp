@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <!--CONFIGURAÇÃO DA PAGINA JSP-->
 
 <!DOCTYPE html> <!--É UMA DECLARAÇÃO PARA INFORMAR AO NAVEGADOR QUAL A VERSÃO DO HTML UTILIZADA-->
-<html>  <!-- FINALIZA O DOCUMENTO HTML-->
-    <head> <!-- FINALIZA A TAG HEAD-->
-        <meta charset="utf-8" />
+<html>  <!-- INCIA O CORPO DO DOCUMENTO HTML-->
+    <head> <!-- INICIA A TAG HEAD-->
+        <meta charset="utf-8" /> <!-- DEFINE A CODIFICAÇÃO COMO UTF-8-->
         <title>Novo Livro</title> <!-- DEFINE O TÍTULO DO DOCUMENTO-->
     </head> <!-- FINALIZA A TAG HEAD-->
-    <body> <!-- DEFINE O CORPO DO DOCUMENTO-->
+    <body> <!-- FINALIZA O CORPO DO DOCUMENTO-->
        <h1>Novo Livro/h1> <!-- EXIBE UM TITULO-->
            <hr>  <!-- MOSTRA UMA LINHA HORIZONTAL-->
            <form action="insert" method="post">
@@ -17,6 +17,6 @@
            </form> <!-- FINALIZA O FORMULARIO-->
 
         <h1>Lista de livros. Luciana Martessi</h1>
-    </body> <!-- DEFINE O CORPO DO DOCUMENTO-->
+    </body> <!-- FINALIZA O CORPO DO DOCUMENTO-->
 </html>  <!-- FINALIZA O DOCUMENTO HTML-->
 

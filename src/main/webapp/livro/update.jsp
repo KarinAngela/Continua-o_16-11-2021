@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <!--CONFIGURAÇÃO DA PAGINA JSP-->
 
 <!DOCTYPE html> <!--É UMA DECLARAÇÃO PARA INFORMAR AO NAVEGADOR QUAL A VERSÃO DO HTML UTILIZADA-->
 <html>  <!-- FINALIZA O DOCUMENTO HTML-->
     <head> <!-- FINALIZA A TAG HEAD-->
-        <meta charset="utf-8" />
+        <meta charset="utf-8" /> <!-- DEFINE A CODIFICAÇÃO COMO UTF-8-->
         <title>Editar Livro</title> <!-- DEFINE O TÍTULO DO DOCUMENTO-->
     </head> <!-- FINALIZA A TAG HEAD-->
     <body> <!-- DEFINE O CORPO DO DOCUMENTO-->
