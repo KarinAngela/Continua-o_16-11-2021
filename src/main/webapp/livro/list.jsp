@@ -22,9 +22,9 @@
                     <td>${l.id}</td> <!-- DEFINE O CABEÇALHO ID PARA A TABELA -->
                     <td>${l.titulo}</td> <!-- DEFINE O CABEÇALHO Título PARA A TABELA -->
                     <td> <!-- COLOCA DENTRO DE UM TR PARA DEFINIR UMA CÉLULA-->
-                        <a href="/livro/update/${l.id}" class="btn btn-primary">Atualizar livro</a>
+                        <a href="/livro/update/${l.id}" class="btn btn-primary">Atualizar livro</a> <!-- EXIBE UMA ÂNCORA ESTILIZADA COM BOOTSTRAP PARA ATUALIZAR O LIVRO -->
                     </td> <!-- FINALIZA O QUE ESTÁ DO  TR PARA DEFINIR UMA CÉLULA-->
-                    <td> <a href="/livro/delete/${l.id}" class="btn btn-danger">Deletar livro</a></td>
+                    <td> <a href="/livro/delete/${l.id}" class="btn btn-danger">Deletar livro</a></td> <!--EXIBE UMA ÂNCORA ESTILIZADA COM BOOTSTRAP PARA EXCLUIR O LIVRO -->
 
                 </tr> <!-- FINALIZA  O TABLE  QUE ESTA  DEFINIDO NA  LINHA DA TABELA-->
 

@@ -24,7 +24,7 @@ public class LivroController { /* DECLARANDO A CLASSE LivroController*/
         
 } /*FECHA A CLASSE*/ 
     public String listar(){  /*CRIA UMA FUNÇÃO CHAMADA listar */
-        return "livro/list.jsp";/ *o return serve para retornar algo de dentro do método que seria o  livro/list.jsp*/
+        return "livro/list.jsp"; /*o return serve para retornar algo de dentro do método que seria o  livro/list.jsp*/
 } /*FECHA A FUNÇÃO */
 
 @RequestMapping("/insert") /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET*/
@@ -48,14 +48,14 @@ public String formDelete(Model model,@PathVariable int id){ /*CRIA UMA FUNÇÃO 
         return "redirect:/livro/list"; /*o return serve para retornar algo de dentro do método que seria o redirect:/livro/list */
      model.addAttribute("livro",livro.get()); /*REFERECE A UM FORMULARIO livros,livro.get, ELE FORNECE O OBJETO PARA O get */
  
-    return "/livro/delete.jsp";/ *o return serve para retornar algo de dentro do método que seria o  /livro/delete.jsp*/
+    return "/livro/delete.jsp"; /*o return serve para retornar algo de dentro do método que seria o  /livro/delete.jsp*/
     
 
 } /*FECHA A FUNÇÃO */
 @RequestMapping(value="/delete",method=RequestMethod.POST) /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET*/
 public String confirmDelete(@RequestParam("id") int id){ /*CRIA UMA FUNÇÃO CHAMADA confirmDelete QUE TERA UM ARGUMENTO CHAMADO RequestParam(id)*/
     livrosRepo.deleteById(id); /* ELE IRA DELETAR O LIVRO*/
-        return "redirect:/livro/list"; ;/ *o return serve para retornar algo de dentro do método que seria o  redirect:/livro/list */
+        return "redirect:/livro/list"; /*o return serve para retornar algo de dentro do método que seria o  redirect:/livro/list */
     
 
 } /*FECHA A FUNÇÃO */
