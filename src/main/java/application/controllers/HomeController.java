@@ -1,13 +1,13 @@
-package application.controllers;
+package application.controllers; /*Pacote responsável por fazer a intermediação */
 
-import org.springframework.stereotype.Controller; /* IMPORTAÇÃO  É RESPONSÁVEL POR RECEBER AS REQUISIÇÕES DO USUÁRIOS */
-import org.springframework.web.bind.annotation.RequestMapping;  /* IMPORTAÇÃO  É RESPONSÁVEL POR RECEBER AS REQUISIÇÕES DO USUÁRIOS*/
-import org.springframework.web.bind.annotation.RequestMethod; /* IMPORTAÇÃO  É RESPONSÁVEL POR RECEBER AS REQUISIÇÕES DO USUÁRIOS*/
+import org.springframework.stereotype.Controller; /* IMPORTAÇÃO  É RESPONSÁVEL  DCONTROLLER DO SPRING BOOT */
+import org.springframework.web.bind.annotation.RequestMapping;  /* IMPORTAÇÃO  DO REQUESTMAPPIN DO SPRING BOOT*/
+import org.springframework.web.bind.annotation.RequestMethod; /* IMPORTAÇÃO  REQUEST METHOD DO SPRIN BOOT*/
 
-@Controller 
+@Controller  /* ATRAVES DA ANOTAÇÃO DO CONTROLLER INDICA QUE A CLASSE A ABAIXO É CONROLLER */
 public class HomeController { /* QUANDO SE USA PUBLIC CLASS, A CLASSE FICA VISIVEL PARA TODOS*/
-    @RequestMapping(method=RequestMethod.GET)
-    public String index() {
-        return "home/index.jsp"; <!-- finaliza a execução de uma função e especifica os valores que devem ser retonados para onde a função foi chamada -->
-    }
-}
+    @RequestMapping(method=RequestMethod.GET) /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL HANDLER, PODE SER USADO O GET*/
+    public String index() { /* CRIA UMA FUNÇÃO CHAMADA INDEX()*/
+        return "home/index.jsp"; /* RETORNA A execução de uma função e especifica os valores que devem ser retonados para onde a função foi chamada */
+    } /*FECHA A FUNÇÃO INDEX.JSP*/
+} /*FECHA A CLASSE HOMECONTROLLER*/
