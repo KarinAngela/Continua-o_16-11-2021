@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;  /* IMPORTAÇÃO 
 import org.springframework.web.bind.annotation.RequestMethod; /* IMPORTAÇÃO  REQUEST METHOD DO SPRIN BOOT*/
 
 @Controller  /* ATRAVES DA ANOTAÇÃO DO CONTROLLER INDICA QUE A CLASSE A ABAIXO É CONROLLER */
-public class HomeController { /* QUANDO SE USA PUBLIC CLASS, A CLASSE FICA VISIVEL PARA TODOS*/
+public class HomeController { */* DECLARANDO A CLASSE HomeController */
     @RequestMapping(method=RequestMethod.GET) /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL HANDLER, PODE SER USADO O GET*/
     public String index() { /* CRIA UMA FUNÇÃO CHAMADA INDEX()*/
         return "home/index.jsp"; /* RETORNA A execução de uma função e especifica os valores que devem ser retonados para onde a função foi chamada */
