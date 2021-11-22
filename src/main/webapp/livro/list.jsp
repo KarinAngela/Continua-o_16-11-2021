@@ -14,13 +14,13 @@
             <a href="/livro/insert" class="btn btn-primary">Novo livro</a>
         <table> <!--DEFINE UMA TABELA-->
             <tr> <!-- COLOCA DENTRO DE UM TABLE PARA DEFINIR UMA LINHA DA TABELA-->
-                <th>ID</th>
-                <th>Título</th>
+                <th>ID</th> <!--ELE DEFINE O CABEÇALHO ID-->
+                <th>Título</th> <!--ELE DEFINE O CABEÇALHO ID-->
             </tr> <!-- COLOCA DENTRO DE UM TABLE PARA DEFINIR UMA LINHA DA TABELA -->
-            <c:forEach var="l" items="${livros}">
+            <c:forEach var="l" items="${livros}"> <!-- TAG RESPONSÁVEL POR LISTAR TODOS OS LIVROS PRESENTES NA BASE DE DADOS E APLICAR A TODOS ELES AS PŔOXIMAS TAGS (UMA ESPÉCIE DE LOOP) -->
                 <tr> <!-- COLOCA DENTRO DE UM TABLE PARA DEFINIR UMA LINHA DA TABELA-->
-                    <td>${l.id}</td>
-                    <td>${l.titulo}</td>
+                    <td>${l.id}</td> <!-- DEFINE O CABEÇALHO ID PARA A TABELA -->
+                    <td>${l.titulo}</td> <!-- DEFINE O CABEÇALHO Título PARA A TABELA -->
                     <td> <!-- COLOCA DENTRO DE UM TR PARA DEFINIR UMA CÉLULA-->
                         <a href="/livro/update/${l.id}" class="btn btn-primary">Atualizar livro</a>
                     </td> <!-- FINALIZA O QUE ESTÁ DO  TR PARA DEFINIR UMA CÉLULA-->
@@ -28,7 +28,7 @@
 
                 </tr> <!-- FINALIZA  O TABLE  QUE ESTA  DEFINIDO NA  LINHA DA TABELA-->
 
-            </c:forEach>
+            </c:forEach>  <!--executada como uma instrução for/next-->
         </table> <!--FINALIZA A  TABELA-->
 
         <h1>Lista de livros. Luciana Martessi</h1> <!-- EXIBE UM TITULO-->

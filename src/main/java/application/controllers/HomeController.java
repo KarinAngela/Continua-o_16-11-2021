@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod; /* IMPORTAÇÃO  R
 public class HomeController { /* DECLARANDO A CLASSE HomeController */
     @RequestMapping(method=RequestMethod.GET) /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL HANDLER, PODE SER USADO O GET*/
     public String index() { /* CRIA UMA FUNÇÃO CHAMADA INDEX()*/
-        return "home/index.jsp"; /* RETORNA A execução de uma função e especifica os valores que devem ser retonados para onde a função foi chamada */
+        return "home/index.jsp"; /*o return serve para retornar algo de dentro do método que seria o index.jsp */
     } /*FECHA A FUNÇÃO INDEX.JSP*/
 } /*FECHA A CLASSE HOMECONTROLLER*/
