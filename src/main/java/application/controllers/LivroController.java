@@ -16,7 +16,7 @@ import org.springframework.ui.Model; /* IMPORTAÇÃO  DO MODEL PARA O SPRING BOO
 @RequestMapping("/livro") /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL HANDLER*/
 public class LivroController { /* DECLARANDO A CLASSE LivroController*/
     @Autowired /* permite que você pule as configurações em outro lugar do que injetar e faça isso por você.*/
-    private LivroRepository livrosRepo;  /* PRIVATE, DEIXARÁ VISÍVEL O ATRIBUTO APENAS PARA A CLASSE EM QUE ESTE ATRIBUTO SE ENCONTRA*/
+    private LivroRepository livrosRepo;  /*NESSE CASO O LivroRepository NÃO PODE SER ACESSADO OU USADO POR NENHUMA OUTRA CLASSE*/
     @RequestMapping("/list") /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL HANDLER*/
     public String list(Model model){  /*CRIA UMA FUNÇÃO CHAMADA LIST QUE TERA UM ARGUMENTO CHAMADO MODEL */   
         model.addAttribute("livros", livrosRepo.findAll()); /*REFERECE A UM FORMULARIO livros,livrosRepo, ELE FORNECE O OBJETO PARA O CONTROLLER */
