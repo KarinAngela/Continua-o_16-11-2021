@@ -1,4 +1,4 @@
-body {
-    font-family: sans-serif;
-    color: darkslateblue;
+body { /*INICIA O CORPO DO DOCUMENTO*/
+    font-family: sans-serif; /* FONTE DE LETRAS*/
+    color: darkslateblue; /* ESCOLHA DA COR PARA  A INTERFACE*/
 }

@@ -1,4 +1,4 @@
-package application.controllers;// pacote responsável por fazer a intermediação 
+package application.controllers; /*PACOTE RESPONSÁVEL POR RECEBER AS REQUISIÇÕES DOS USUÁRIOS*/
 import java.util.Optional; /* IMPORTAÇÃO DO Optional DO JAVA*/
 
 import org.springframework.beans.factory.annotation.Autowired; /* IMPORTAÇÃO DO anotation.Autowired DO SPRING BOOT */
@@ -12,24 +12,24 @@ import application.models.Livro; /* É RESPONSAVEL PELA IMPORTAÇÃO DO MODELS.L
 import application.repositories.LivroRepository; /* IMPORTAÇÃO DO REPOSITORIO DOS LIVROS*/
 import org.springframework.ui.Model; /* IMPORTAÇÃO  DO MODEL PARA O SPRING BOOT*/
 
-@Controller /* É UMA ESPECIALIZAÇÃO DA ANOTAÇÃO @COMPONENT, QUE PERMITE QUE UMA CLASSE SEJA RECONHECIDA COMO UM COMPONENTE GERENCIADO POR UMA SPRING */
+@Controller /*É UMA ESPECIALIZAÇÃO DA ANOTAÇÃO @COMPONENT, QUE PERMITE QUE UMA CLASSE SEJA RECONHECIDA COMO UM COMPONENTE GERENCIADO POR UMA SPRING*/
 @RequestMapping("/livro") /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET*/
 public class LivroController { /* DECLARANDO A CLASSE LivroController*/
-    @Autowired /* ANOTAÇÃO, FORNECE CONTROLE SOBRE ONDE E COMO A LIGRAÇÃO ENTRE AS CLASSES DEVE SER REALIZADA.*/
+    @Autowired /*ANOTAÇÃO, FORNECE CONTROLE SOBRE ONDE E COMO A LIGRAÇÃO ENTRE AS CLASSES DEVE SER REALIZADA.*/
     private LivroRepository livrosRepo;  /*NESSE CASO O LivroRepository NÃO PODE SER ACESSADO OU USADO POR NENHUMA OUTRA CLASSE*/
     @RequestMapping("/list") /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL HANDLER*/
-    public String list(Model model){  /*CRIA UMA FUNÇÃO CHAMADA LIST QUE TERA UM ARGUMENTO CHAMADO MODEL */   
-        model.addAttribute("livros", livrosRepo.findAll()); /*REFERECE A UM FORMULARIO livros,livrosRepo, ELE FORNECE O OBJETO PARA O CONTROLLER */
-        return "list.jsp"; /*o return serve para retornar algo de dentro do método que seria o  list.jsp*/
+    public String list(Model model){  /*CRIA UMA FUNÇÃO CHAMADA LIST QUE TERA UM ARGUMENTO CHAMADO MODEL*/   
+        model.addAttribute("livros", livrosRepo.findAll()); /*REFERECE A UM FORMULARIO livros,livrosRepo, ELE FORNECE O OBJETO PARA O CONTROLLER*/
+        return "list.jsp"; /*o return serve para retornar algo de dentro do método que seria o  list.jsp, como se fosse um loop*/
         
 } /*FECHA A CLASSE*/ 
-    public String listar(){  /*CRIA UMA FUNÇÃO CHAMADA listar */
-        return "livro/list.jsp"; /*o return serve para retornar algo de dentro do método que seria o  livro/list.jsp*/
+    public String listar(){  /*CRIA UMA FUNÇÃO CHAMADA listar*/
+        return "livro/list.jsp"; /*o return serve para retornar algo de dentro do método que seria o  livro/list.jsp, como se fosse um loop*/
 } /*FECHA A FUNÇÃO */
 
 @RequestMapping("/insert") /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET*/
-public String formInsert(){ /* CRIA UMA FUNÇÃO CHAMADA formInsert*/
-    return "insert.jsp"; /* o return serve para retornar algo de dentro do método que seria o insert.jsp */
+public String formInsert(){ /*CRIA UMA FUNÇÃO CHAMADA formInsert*/
+    return "insert.jsp"; /*o return serve para retornar algo de dentro do método que seria o insert.jsp, como se fosse um loop*/
 
 } /*FECHA A FUNÇÃO */
 @RequestMapping(value="/insert",method=RequestMethod.POST) /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET*/
@@ -38,24 +38,24 @@ public String saveInsert(@RequestParam("titulo")String titulo){ /*CRIA UMA FUNÇ
     Livro livro=new Livro(); /*ELE DEFINE O OBJETO LIVRO*/
     livro.setTitulo(titulo); /*CONJUNTO DE COLLECTION, NÃO HÁ REPETIÇÕES*/
     livrosRepo.save(livro); /*ELE SALVO O NOME DO LIVRO QUE FOI ESCRITO*/
-    return "redirect:/livro/list"; /*o return serve para retornar algo de dentro do método que seria o redirect:/livro/list */
+    return "redirect:/livro/list"; /*o return serve para retornar algo de dentro do método que seria o redirect:/livro/list, como se fosse um loop*/
 
 } /*FECHA A FUNÇÃO */
 @RequestMapping("/delete/{id}") /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET*/
 public String formDelete(Model model,@PathVariable int id){ /*CRIA UMA FUNÇÃO CHAMADA FormDelete QUE TERA UM ARGUMENTO CHAMADO Model model e PathVariable */   
     Optional<Livro>livro=livrosRepo.findById(id); /* SIMPLIFICAÇÃO DO <livro>livro=livrosRepo*/
     if (!livro.isPresent()) /* USADO PARA TESTA A CONDIÇÃO !livro.isPresent*/
-        return "redirect:/livro/list"; /*o return serve para retornar algo de dentro do método que seria o redirect:/livro/list */
+        return "redirect:/livro/list"; /*o return serve para retornar algo de dentro do método que seria o redirect:/livro/list, como se fosse um loop */
      model.addAttribute("livro",livro.get()); /*REFERECE A UM FORMULARIO livros,livro.get, ELE FORNECE O OBJETO PARA O get */
  
-    return "/livro/delete.jsp"; /*o return serve para retornar algo de dentro do método que seria o  /livro/delete.jsp*/
+    return "/livro/delete.jsp"; /*o return serve para retornar algo de dentro do método que seria o  /livro/delete.jsp, como se fosse um loop*/
     
 
 } /*FECHA A FUNÇÃO */
 @RequestMapping(value="/delete",method=RequestMethod.POST) /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET*/
 public String confirmDelete(@RequestParam("id") int id){ /*CRIA UMA FUNÇÃO CHAMADA confirmDelete QUE TERA UM ARGUMENTO CHAMADO RequestParam(id)*/
     livrosRepo.deleteById(id); /* ELE IRA DELETAR O LIVRO*/
-        return "redirect:/livro/list"; /*o return serve para retornar algo de dentro do método que seria o  redirect:/livro/list */
+        return "redirect:/livro/list"; /*o return serve para retornar algo de dentro do método que seria o  redirect:/livro/list, como se fosse um loop */
     
 
 } /*FECHA A FUNÇÃO */

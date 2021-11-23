@@ -1,4 +1,4 @@
-package application.models; /*Pacote responsável por fazer a intermediação */
+package application.models; /*PACOTE RESPONSÁVEL PELO ACESSO E MANIPULAÇÃO DOS DADOS DA SUA APLICAÇÃO*/
 
 
 import javax.persistence.Entity; /*IMPORTAÇÃO É RESPONSAVEL POR persistence.Entity */
@@ -8,7 +8,7 @@ import javax.persistence.Id;  /*IMPORTAÇÃO É RESPONSAVEL POR  persistence.Id 
 import javax.persistence.Table;  /*IMPORTAÇÃO É RESPONSAVEL POR  persistence.Table */
 
 @Entity /* DECLARA UMA ENTIDADE DO TIPO RELACIONAL, COMO UM TABELA*/
-@Table(name="livros") /*ANOTAÇÃO*/
+@Table(name="livros") /*USADO PARA ALTERAR O NOME DA TABELA DO BANCO DE DADOS*/
 public class Livro { /* DECLARANDO A CLASSE Livro */
 
     @Id /*DEFINE O IDENTIFICADOR DA TABELA*/
