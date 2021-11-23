@@ -1,12 +1,12 @@
-package application.controllers; /*PACOTE RESPONSÁVEL POR RECEBER AS REQUISIÇÕES DOS USUÁRIOS*/
+package application.controllers; /*PACOTE RESPONSÁVEL POR FAZER A INTERMIDIAÇÃO DA PARTE DE VIZUALIZAÇÃO E CONTROLE*/
 import java.util.Optional; /* IMPORTAÇÃO DO Optional DO JAVA*/
 
-import org.springframework.beans.factory.annotation.Autowired; /* IMPORTAÇÃO DO anotation.Autowired DO SPRING BOOT */
-import org.springframework.stereotype.Controller; /* IMPORTAÇÃO  É RESPONSÁVEL  Controller DO SPRING BOOT */
-import org.springframework.web.bind.annotation.PathVariable; /*IMPORTAÇÃO DO Path Variable DO SPRING BOOT */
-import org.springframework.web.bind.annotation.RequestMapping; /* IMPORTAÇÃO  DO RequestT Mapping DO SPRING BOOT*/
-import org.springframework.web.bind.annotation.RequestMethod; /* IMPORTAÇÃO  Request Method DO SPRING BOOT*/
-import org.springframework.web.bind.annotation.RequestParam; /*IMPORTAÇÃO DO Request Param PARA O SPRING BOOT */
+import org.springframework.beans.factory.annotation.Autowired; /* IMPORTAÇÃO DO anotation.Autowired DO SPRING FRAMEWORK */
+import org.springframework.stereotype.Controller; /* IMPORTAÇÃO  É RESPONSÁVEL  Controller DO FRAMEWORK */
+import org.springframework.web.bind.annotation.PathVariable; /*IMPORTAÇÃO DO Path Variable DO FRAMEWORK */
+import org.springframework.web.bind.annotation.RequestMapping; /* IMPORTAÇÃO  DO RequestT Mapping DO FRAMEWORK*/
+import org.springframework.web.bind.annotation.RequestMethod; /* IMPORTAÇÃO  Request Method DO FRAMEWORK*/
+import org.springframework.web.bind.annotation.RequestParam; /*IMPORTAÇÃO DO Request Param PARA O FRAMEWORK */
 
 import application.models.Livro; /* É RESPONSAVEL PELA IMPORTAÇÃO DO MODELS.LIVRO*/
 import application.repositories.LivroRepository; /* IMPORTAÇÃO DO REPOSITORIO DOS LIVROS*/
@@ -19,7 +19,7 @@ public class LivroController { /* DECLARANDO A CLASSE LivroController*/
     private LivroRepository livrosRepo;  /*NESSE CASO O LivroRepository NÃO PODE SER ACESSADO OU USADO POR NENHUMA OUTRA CLASSE*/
     @RequestMapping("/list") /*É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL HANDLER*/
     public String list(Model model){  /*CRIA UMA FUNÇÃO CHAMADA LIST QUE TERA UM ARGUMENTO CHAMADO MODEL*/   
-        model.addAttribute("livros", livrosRepo.findAll()); /*REFERECE A UM FORMULARIO livros,livrosRepo, ELE FORNECE O OBJETO PARA O CONTROLLER*/
+        model.addAttribute("livros", livrosRepo.findAll()); /*ADICIONA O ATRIBUTO  livros, AO MODELO*/
         return "list.jsp"; /*o return serve para retornar algo de dentro do método que seria o  list.jsp, como se fosse um loop*/
         
 } /*FECHA A CLASSE*/ 

@@ -1,8 +1,8 @@
 package application.controllers; /*PACOTE RESPONSÁVEL POR FAZER INTERMIDIAÇÃO,RECEBER AS REQUISIÇÕES DOS USUÁRIOS*/
 
-import org.springframework.stereotype.Controller; /* IMPORTAÇÃO  É RESPONSÁVEL  DCONTROLLER DO SPRING BOOT */
-import org.springframework.web.bind.annotation.RequestMapping;  /* IMPORTAÇÃO  DO REQUESTMAPPIN DO SPRING BOOT*/
-import org.springframework.web.bind.annotation.RequestMethod; /* IMPORTAÇÃO  REQUEST METHOD DO SPRIN BOOT*/
+import org.springframework.stereotype.Controller; /* IMPORTAÇÃO  É RESPONSÁVEL  DCONTROLLER DO FRAMEOWRK */
+import org.springframework.web.bind.annotation.RequestMapping;  /* IMPORTAÇÃO  DO REQUESTMAPPIN DO FRAMEOWRK*/
+import org.springframework.web.bind.annotation.RequestMethod; /* IMPORTAÇÃO  REQUEST METHOD DO FRAMEOWRK*/
 
 @Controller  /*ATRAVES DA ANOTAÇÃO DO CONTROLLER INDICA QUE A CLASSE A ABAIXO É CONROLLER*/
 public class HomeController {  /* DECLARANDO A CLASSE HomeController*/
