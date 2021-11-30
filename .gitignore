@@ -1,13 +1,17 @@
-/* AO TODO IRA FALA SOBRE QUAIS ARQUIVOS SERÃO IGNORADOS*/
-.gradle    /*COMPILAÇÃO DE CÓDIGOS ABERTO*/
-**/build/ /*VERSÃO COMPILADA*/
-!src/**/build/ /* PASTA DO PROJETO DA VERSÃO COMPILADA*/
+#AO TODO IRA FALA SOBRE QUAIS ARQUIVOS SERÃO IGNORADOS
+.gradle
+#VERSÃO COMPILADA
+**/build/
+#PASTA DO PROJETO DA VERSÃO COMPILADA
+!src/**/build/
 
 # Ignore Gradle GUI config
-gradle-app.setting /*CONFIGURAÇÕES*/
+#CONFIGURAÇÕES
+gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar /* É UMA FERRAMENTA QUE NOS PERMITE USA-LA SEM TER INSTALADO*/
+#É UMA FERRAMENTA QUE NOS PERMITE USA-LA SEM TER INSTALADO
+!gradle-wrapper.jar
 
 # Cache of project
 .gradletasknamecache
@@ -16,14 +20,22 @@ gradle-app.setting /*CONFIGURAÇÕES*/
 # gradle/wrapper/gradle-wrapper.properties
 
 ### Java ###
-*.class /* ELEMENTO DE UM CÓDIGO*/
+#ELEMENTO DE UM CÓDIGO
+*.class
 
 # Package Files #
-*.jar /* ARQUIVO COMPACTADO*/
-*.war /* É UM ARQUIVO JAR USADO PARA DISTRIBUIR UMA COLEÇÃO DE JavaServer*/
-*.ear /* É UM FORMATO DE ARQUIVO QUE TEM UM OU MAIS MÓDULOS EM UM ARQUIVO ÚNICO*/
+#ARQUIVO COMPACTADO
+*.jar
+#É UM ARQUIVO JAR USADO PARA DISTRIBUIR UMA COLEÇÃO DE JavaServer
+*.war
+#É UM FORMATO DE ARQUIVO QUE TEM UM OU MAIS MÓDULOS EM UM ARQUIVO ÚNICO
+*.ear
 
-.settings/* #CONFIGURAÇÕES
-bin/* #LOCAL DE ARQUIVOS BINÁRIOS
-.project /*CRIAÇÃO DO PROJETO*/
-.classpath /* SE REFERE ONDE PROCURAR OS PACOTES E CLASSES DEFINADAS PELA USUÁRIO*/
+#CONFIGURAÇÕES
+.settings/*
+#LOCAL DE ARQUIVOS BINÁRIOS 
+bin/*
+#CRIAÇÃO DO PROJETO
+.project
+#SE REFERE ONDE PROCURAR OS PACOTES E CLASSES DEFINADAS PELA USUÁRIO
+.classpath
