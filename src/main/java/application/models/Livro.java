@@ -1,35 +1,35 @@
-package application.models; //PACOTE RESPONSÁVEL PELO ACESSO E MANIPULAÇÃO DOS DADOS DA SUA APLICAÇÃO
+package application.models; //PACOTE RESPONSÁVEL POR MANIPULAR INFORMAÇÕES
 
+import javax.persistence.Entity; //IMPORTANDO O ENTITY DO JAVA
+import javax.persistence.GeneratedValue; //IMPORTANDO O GENERATED VALUE DO JAVA
+import javax.persistence.GenerationType; //IMPORTANDO O GENERATION TYPE DO JAVA
+import javax.persistence.Id; //IMPORTANDO O ID DO JAVA
+import javax.persistence.Table; //IMPORTANDO O TABLE DO JAVA
 
-import javax.persistence.Entity; //IMPORTAÇÃO É RESPONSAVEL POR persistence.Entity 
-import javax.persistence.GeneratedValue; // IMPORTAÇÃO É RESPONSAVEL POR GeneratedValue 
-import javax.persistence.GenerationType; //IMPORTAÇÃO É RESPONSAVEL POR GenerationType 
-import javax.persistence.Id;  //IMPORTAÇÃO É RESPONSAVEL POR  persistence.Id 
-import javax.persistence.Table;  //IMPORTAÇÃO É RESPONSAVEL POR  persistence.Table 
+@Entity //A ANOTAÇÃO ("@ENTITY") É UTILIZADA PARA INFORMAR QUE A CLASSE "Livro" É UMA ENTIDADE
+@Table(name="livros") //ESPECÍFICA A TABELA "livros" PARA O ENTITY
 
-@Entity //DECLARA UMA ENTIDADE DO TIPO RELACIONAL, COMO UM TABELA
-@Table(name="livros") //USADO PARA ALTERAR O NOME DA TABELA DO BANCO DE DADOS
-public class Livro { // DECLARANDO A CLASSE Livro
+public class Livro { //DECLARAMOS A CLASSE "Livro"
 
-    @Id //identifica a chave primaria da entidade
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //ANOTAÇÃO do GenerationType.IDENTITY
-    private int id;  //SE REFERE NÚMERO INTEIROS (ID)
-    private String titulo;   //CRIA UMA FUNÇÃO CHAMADA titulo
+    @Id //ESPECÍFICA A CHAVE PRIMÁRIA DA ENTIDADE
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //UTILIZADO PARA INFORMAR A GERAÇÃO DO VALOR DO IDENTIFICADOR ÚNICO
+    private int id; //CRIAÇÃO DE UMA VARÍAVEL PRIVADA INT "id"
+    private String titulo; //CRIAÇÃO DE UMA VARÍAVEL PRIVADA STRING "titulo"
 
-    public int getId() { //SE REFERE EM LER A INFORMAÇÃO DE NÚMERO INTEIROS 
-        return id; //o return serve para retornar algo de dentro do método que seria o id
-    }
-    public void setId(int id) { //USADO PARA NÃO DUBPLICAR O NÚMERO INTEIRO
-        this.id = id; // THIS É USADA PARA REFERENCIAR A INSTÂNCIA ATUAL DO MÉTODO id
+    public int getId() { //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO INT CHAMADA "getId()" QUE NÃO TERÁ PARÂMETRO E QUE SERVE PARA PEGAR O VALOR DE "id" (GET)
+        return id; //RETORNA O VALOR DE "id"
+    } //FECHA A FUNÇÃO "getId()"
 
-    }
-    public String getTitulo() { //SE REFERE EM LER A INFORMAÇÃO DO Titulo
-        return titulo; //o return serve para retornar algo de dentro do método que seria o  titulo
-    }
-    public void setTitulo(String titulo) { //USADO PARA NÃO DUBPLICAR O Titulo
-        this.titulo = titulo; //THIS É USADA PARA REFERENCIAR A INSTÂNCIA ATUAL DO MÉTODO (titulo)
-    }
+    public void setId(int id) { //CRIA UMA FUNÇÃO PÚBLICA VOID CHAMADA "setId()" QUE TERÁ UM PARÂMETRO INT "id" E QUE SERVE PARA DEFINIR O VALOR DE "id" (SET)
+        this.id = id; //SETA O VALOR DE "this.id" IGUAL AO PASSADO NO PARÂMETRO ("id")
+    } //FECHA A FUNÇÃO "setId()"
+    
+    public String getTitulo() { //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO STRING CHAMADA "getTitulo()" QUE NÃO TERÁ PARÂMETRO E QUE SERVE PARA PEGAR O VALOR DE "titulo" (GET)
+        return titulo; //RETORNA O VALOR DE "titulo"
+    } //FECHA A FUNÇÃO "getTitulo()"
+    
+    public void setTitulo(String titulo) { //CRIA UMA FUNÇÃO PÚBLICA VOID CHAMADA "setTitulo()" QUE TERÁ UM PARÂMETRO STRING "titulo" E QUE SERVE PARA DEFINIR O VALOR DE "titulo" (SET)
+        this.titulo = titulo; //SETA O VALOR DE "this.titulo" IGUAL AO PASSADO NO PARÂMETRO ("titulo")
+    } //FECHA A FUNÇÃO "setTitulo()"
 
-
-
-}
+} //FECHA A CLASSE "Livro"

@@ -1,13 +1,14 @@
-package application.controllers; //PACOTE RESPONSÁVEL POR FAZER INTERMIDIAÇÃO,RECEBER AS REQUISIÇÕES DOS USUÁRIOS
+package application.controllers; //PACOTE RESPONSÁVEL POR FAZER A INTERMEDIAÇÃO DA PARTE DE VISUALIZAÇÃO E MODEL
 
-import org.springframework.stereotype.Controller; //IMPORTAÇÃO  É RESPONSÁVEL  DCONTROLLER DO FRAMEOWRK
-import org.springframework.web.bind.annotation.RequestMapping;  //IMPORTAÇÃO  DO REQUESTMAPPIN DO FRAMEOWRK
-import org.springframework.web.bind.annotation.RequestMethod; //IMPORTAÇÃO  REQUEST METHOD DO FRAMEOWRK
+import org.springframework.stereotype.Controller; //IMPORTANDO O CONTROLLER DO SPRING FRAMEWORK
+import org.springframework.web.bind.annotation.RequestMapping; //IMPORTANDO O REQUEST MAPPING DO SPRING FRAMEWORK
+import org.springframework.web.bind.annotation.RequestMethod; //IMPORTANDO O REQUEST METHOD DO SPRING FRAMEWORK
 
-@Controller  //ATRAVES DA ANOTAÇÃO DO CONTROLLER INDICA QUE A CLASSE A ABAIXO É CONROLLER
-public class HomeController {  //DECLARANDO A CLASSE HomeController
-    @RequestMapping(method=RequestMethod.GET) //É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL HANDLER, PODE SER USADO O GET
-    public String index() {  //CRIA UMA FUNÇÃO CHAMADA INDEX
-        return "home/index.jsp"; //o return serve para retornar algo de dentro do método que seria o nome/index.jsp, como se fosse um tipo de loop
-    } //FECHA A FUNÇÃO INDEX.JSP
-} //FECHA A CLASSE HOMECONTROLLER
+@Controller //ATRAVÉS DA ANOTAÇÃO CONTROLLER ("@Controller"), INDICAMOS QUE A CLASSE ABAIXO É UM CONTROLLER
+public class HomeController { //DECLARAMOS A CLASSE "HomeController"
+    @RequestMapping(method=RequestMethod.GET) //A ANOTAÇÃO DO REQUEST MAPPING ("@RequestMapping") TEM POR FINALIDADE FAZER O MAPEAMENTO, PORTANTO INDICA QUE O CONTROLADOR RECEBERÁ REQUISIÇÕES DO TIPO GET.
+    public String index() { //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO String CHAMADA "index()" SEM PARÂMETRO E QUE SERVE PARA APONTAR O CAMINHO DE "index.jsp"
+        return "home/index.jsp"; //RETORNA O ENDEREÇO DO "/home/index.jsp"
+    } //FECHA A FUNÇÃO "index()"
+
+} //FECHA A CLASSE HomeController

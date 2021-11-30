@@ -1,85 +1,90 @@
-package application.controllers; //PACOTE RESPONSÁVEL POR FAZER A INTERMIDIAÇÃO DA PARTE DE VIZUALIZAÇÃO E CONTROLE
-import java.util.Optional; //IMPORTAÇÃO DO Optional DO JAVA
+package application.controllers; //PACOTE RESPONSÁVEL POR FAZER A INTERMEDIAÇÃO DA PARTE DE VISUALIZAÇÃO E MODEL
 
-import org.springframework.beans.factory.annotation.Autowired; // IMPORTAÇÃO DO anotation.Autowired DO SPRING FRAMEWORK 
-import org.springframework.stereotype.Controller; //IMPORTAÇÃO  É RESPONSÁVEL  Controller DO FRAMEWORK 
-import org.springframework.web.bind.annotation.PathVariable; //IMPORTAÇÃO DO Path Variable DO FRAMEWORK 
-import org.springframework.web.bind.annotation.RequestMapping; // IMPORTAÇÃO  DO RequestT Mapping DO FRAMEWORK
-import org.springframework.web.bind.annotation.RequestMethod; // IMPORTAÇÃO  Request Method DO FRAMEWORK
-import org.springframework.web.bind.annotation.RequestParam; //IMPORTAÇÃO DO Request Param PARA O FRAMEWORK 
 
-import application.models.Livro; //É RESPONSAVEL PELA IMPORTAÇÃO DO MODELS.LIVRO
-import application.repositories.LivroRepository; //IMPORTAÇÃO DO REPOSITORIO DOS LIVROS
-import org.springframework.ui.Model; // IMPORTAÇÃO  DO MODEL PARA O SPRING BOOT
+import org.springframework.beans.factory.annotation.Autowired; //IMPORTANDO O AUTOWIRED DO SPRING FRAMEWORK
+import org.springframework.stereotype.Controller; //IMPORTANDO O CONTROLLER DO SPRING FRAMEWORK
+import org.springframework.web.bind.annotation.RequestMapping; //IMPORTANDO O REQUEST MAPPING DO SPRING FRAMEWORK
+import org.springframework.web.bind.annotation.RequestMethod; //IMPORTANDO O REQUEST METHOD DO SPRING FRAMEWORK
+import org.springframework.web.bind.annotation.RequestParam; //IMPORTANDO O REQUEST PARAM DO SPRING FRAMEWORK
+import org.springframework.web.bind.annotation.PathVariable; //IMPORTANDO O PATH VARIABLE DO SPRING FRAMEWORK
+import org.springframework.ui.Model; //IMPORTANDO O MODEL DO SPRING FRAMEWORK
 
-@Controller //É UMA ESPECIALIZAÇÃO DA ANOTAÇÃO @COMPONENT, QUE PERMITE QUE UMA CLASSE SEJA RECONHECIDA COMO UM COMPONENTE GERENCIADO POR UMA SPRING
-@RequestMapping("/livro") //****É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET
-public class LivroController { //DECLARANDO A CLASSE LivroController
+import java.util.Optional; //IMPORTANDO O OPTIONAL DO JAVA
+
+import application.models.Livro; //IMPORTANDO O MODEL LIVRO DA APLICAÇÃO
+import application.repositories.LivroRepository; //IMPORTANDO O REPOSITORIO LivroRepository DA APLICAÇÃO
+
+
+
+@Controller //ATRAVÉS DA ANOTAÇÃO CONTROLLER ("@Controller"), INDICAMOS QUE A CLASSE ABAIXO É UM CONTROLLER
+@RequestMapping("/livro") //A ANOTAÇÃO DO REQUEST MAPPING ("@RequestMapping") TEM POR FINALIDADE FAZER O MAPEAMENTO, PORTANTO INDICA QUE O CONTROLADOR RECEBERÁ REQUISIÇÕES NO ENDEREÇO INDICADO ("/livro").
+public class LivroController { //DECLARAMOS A CLASSE "LivroController"
+    
+    @Autowired //O AUTOWIRED (@AUTOWIRED) É A ANOTAÇÃO MAIS UTILIZA COM RELAÇÃO A INJEÇÃO DE DEPENDÊNCIAS. COMO O PRÓPRIO NOME DIZ, O AUTOWIRED, INDICA UM PONTO AONDE A INJEÇÃO AUTOMÁTICA DEVE SER APLICADA
+    private LivroRepository livrosRepo; //CRIA UM OBJETO PRIVADO CHAMADO livrosRepo DO TIPO LivroRepository
    
-    @Autowired //ANOTAÇÃO, FORNECE CONTROLE SOBRE ONDE E COMO A LIGRAÇÃO ENTRE AS CLASSES DEVE SER REALIZADA.
-    private LivroRepository livrosRepo;  //NESSE CASO O LivroRepository NÃO PODE SER ACESSADO OU USADO POR NENHUMA OUTRA CLASSE
+    @RequestMapping("/list") //A ANOTAÇÃO DO REQUEST MAPPING ("@RequestMapping") TEM POR FINALIDADE FAZER O MAPEAMENTO, PORTANTO INDICA QUE O CONTROLADOR RECEBERÁ REQUISIÇÕES NO ENDEREÇO INDICADO ("/list").
+    public String list(Model model) {  //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO String CHAMADA "list()" QUE TERÁ UM PARÂMETRO MODEL "model" E QUE SERVE PARA LISTAR TODOS OS LIVROS
+        model.addAttribute("livros", livrosRepo.findAll()); //ADICIONA O ATRÍBUTO "livros" AO MODELO E PREENCHE COM TODOS LIVROS DO "livrosRepo"
+        return "list.jsp"; //RETORNA O ENDEREÇO DO "list.jsp"
+    } //FECHA A FUNÇÃO "list()"
+
+
+    public String listar(){ //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO String CHAMADA "listar()" SEM PARÂMETRO E QUE SERVE PARA LISTAR TODOS OS LIVROS DENTRO DO "/livro"
+      return "livro/list.jsp"; //RETORNA O ENDEREÇO DO "livro/list.jsp"
+    } //FECHA A FUNÇÃO "listar()"
+
+
+    @RequestMapping("/insert") //A ANOTAÇÃO DO REQUEST MAPPING ("@RequestMapping") TEM POR FINALIDADE FAZER O MAPEAMENTO, PORTANTO INDICA QUE O CONTROLADOR RECEBERÁ REQUISIÇÕES NO ENDEREÇO INDICADO ("/insert").
+    public String formInsert(){ //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO String CHAMADA "formInsert()" SEM PARÂMETRO E QUE SERVE PARA APONTAR O CAMINHO DE "insert.jsp"
+      return "insert.jsp"; //RETORNA O ENDEREÇO DO "insert.jsp"
+    } //FECHA A FUNÇÃO "formInsert()"
     
-    @RequestMapping("/list") //É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL HANDLER
-    public String list(Model model){  //CRIA UMA FUNÇÃO CHAMADA LIST QUE TERA UM ARGUMENTO CHAMADO MODEL
-        model.addAttribute("livros", livrosRepo.findAll()); //ADICIONA O ATRIBUTO  livros, AO MODELO
-        return "list.jsp"; //o return serve para retornar algo de dentro do método que seria o  list.jsp, como se fosse um loop
-        
-} //FECHA A CLASSE 
-    public String listar(){  //CRIA UMA FUNÇÃO CHAMADA listar
-        return "livro/list.jsp"; //o return serve para retornar algo de dentro do método que seria o  livro/list.jsp, como se fosse um loop
-} //FECHA A FUNÇÃO 
-
-@RequestMapping("/insert") //É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET
-public String formInsert(){ //CRIA UMA FUNÇÃO CHAMADA formInsert
-    return "insert.jsp"; //o return serve para retornar algo de dentro do método que seria o insert.jsp, como se fosse um loop
-
-} //FECHA A FUNÇÃO 
-@RequestMapping(value="/insert",method = RequestMethod.POST) //É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET
-public String saveInsert(@RequestParam("titulo")String titulo){ //CRIA UMA FUNÇÃO CHAMADA saveInsert QUE TERA UM ARGUMENTO CHAMADO titulo 
-
-    Livro livro=new Livro(); //ELE DEFINE O OBJETO LIVRO
-    livro.setTitulo(titulo); //CONJUNTO DE COLLECTION, NÃO HÁ REPETIÇÕES
-    livrosRepo.save(livro); //ELE SALVO O NOME DO LIVRO QUE FOI ESCRITO
-    return "redirect:/livro/list"; //o return serve para retornar algo de dentro do método que seria o redirect:/livro/list, como se fosse um loop
-
-} //FECHA A FUNÇÃO 
-@RequestMapping("/delete/{id}") //É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET
-public String formDelete(Model model,@PathVariable int id){ //CRIA UMA FUNÇÃO CHAMADA FormDelete QUE TERA UM ARGUMENTO CHAMADO Model model e PathVariable    
-    Optional<Livro> livro = livrosRepo.findById(id); // SIMPLIFICAÇÃO DO <livro>livro=livrosRepo
-    if (!livro.isPresent()) // USADO PARA TESTA A CONDIÇÃO !livro.isPresent
-        return "redirect:/livro/list"; //o return serve para retornar algo de dentro do método que seria o redirect:/livro/list, como se fosse um loop 
-     model.addAttribute("livro",livro.get()); //REFERECE A UM FORMULARIO livros,livro.get, ELE FORNECE O OBJETO PARA O get 
- 
-    return "/livro/delete.jsp"; //o return serve para retornar algo de dentro do método que seria o  /livro/delete.jsp, como se fosse um loop
+    
+    @RequestMapping(value="/insert", method=RequestMethod.POST) //A ANOTAÇÃO DO REQUEST MAPPING ("@RequestMapping") TEM POR FINALIDADE FAZER O MAPEAMENTO, PORTANTO INDICA QUE O CONTROLADOR RECEBERÁ REQUISIÇÕES DO TIPO POST NO ENDEREÇO INDICADO ("/insert").
+    public String saveInsert(@RequestParam("titulo") String titulo){ //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO String CHAMADA "saveInsert()" COM O PARÂMETRO STRING "titulo" E QUE SERVE PARA INSERIR UM LIVRO NO "livrosRepo"
+      Livro livro=new Livro(); //CRIA UMA INSTÂNCIA DO TIPO "Livro" CHAMADA DE "livro"
+      livro.setTitulo(titulo); //DEFINE UM TÍTULO PARA "livro"
+      livrosRepo.save(livro); //SALVA O "livro" NO "livrosRepo"
+      return "redirect:/livro/list"; //REDIRECIONA O NAVEGADOR PARA "/livro/list"
+    } //FECHA A FUNÇÃO "saveInsert()"
     
 
-} //FECHA A FUNÇÃO
-@RequestMapping(value="/delete", method= RequestMethod.POST) //É A ANOTAÇÃO UTILIZADA TRADICIONALMENTE PARA IMPLEMENTAR URL, ELA SUPORTA MÉTODOS COMO POST E GET
-public String confirmDelete(@RequestParam("id") int id){ //CRIA UMA FUNÇÃO CHAMADA confirmDelete QUE TERA UM ARGUMENTO CHAMADO RequestParam(id)
-    livrosRepo.deleteById(id); // ELE IRA DELETAR O LIVRO
-        return "redirect:/livro/list"; //o return serve para retornar algo de dentro do método que seria o  redirect:/livro/list, como se fosse um loop
-    
+    @RequestMapping("/update/{id}") //A ANOTAÇÃO DO REQUEST MAPPING ("@RequestMapping") TEM POR FINALIDADE FAZER O MAPEAMENTO, PORTANTO INDICA QUE O CONTROLADOR RECEBERÁ REQUISIÇÕES NO ENDEREÇO INDICADO ("/insert"). O {id} é REFERENTE AO ID DO LIVRO
+      public String formUpdate(Model model, @PathVariable int id ){ //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO String CHAMADA "formUpdate()" COM OS PARÂMETRO MODEL "model" E INT "id" E QUE SERVE PARA VERIFICAR SE E POSSÍVEL ATUALIZAR O TÍTULO DO LIVRO NO REPOSITÓRIO
+        Optional<Livro> livro=livrosRepo.findById(id); //BUSCA O LIVRO PELO "id" E VERIFICA SE ELE ESTÁ PRESENTE
+        if(!livro.isPresent()) //SE ELE NÃO ESTIVER PRESENTE
+          return "redirect:/livro/list"; //REDIRECIONA O NAVEGADOR PARA "/livro/list"
+        model.addAttribute("livro",livro.get()); //ADICIONA O ATRIBUTO "livro" AO MODELO E PEGA O LIVRO
+        return "/livro/update.jsp"; //RETORNA O ENDEREÇO DO "/livro/update.jsp"
+      } //FECHA A FUNÇÃO "formUpdate()"
 
-} //FECHA A FUNÇÃO 
 
-@RequestMapping("/update/{id}") // Anotação para mapear solicitações da web em métodos em classes de tratamento de solicitações com assinaturas de método flexíveis, marca como essa função pode ser acessada pela web.
-public String formUpdate(Model model, @PathVariable int id) { // Cria uma função de retorno público de tipo String com o nome formUpdate, que recebe o id do livro e o modelo como parâmetro, essa função serve para confirmar se é possível atualizar títulos do repositório.
-  Optional<Livro> livro = livrosRepo.findById(id);  // Busca o livro pelo id e marca campo como opcional pra caso o id não seja encontrado.
-  if (!livro.isPresent()) // Define se o livro não for presente, o usuário será redirecionado de volta pra página que está.
-    return "redirect:/livro/list";  // Retorna um redirecionamento para voltar pra lista após a atualização.
-  model.addAttribute("livro", livro.get()); // Adiciona o atributo livro ao model e preenche com o livro obtido.
-  // return "redirect:/livro/update.jsp";
-  return "/livro/update.jsp"; // Redireciona para a página de atualização.
-}
+    @RequestMapping(value="/update",method=RequestMethod.POST) //A ANOTAÇÃO DO REQUEST MAPPING ("@RequestMapping") TEM POR FINALIDADE FAZER O MAPEAMENTO, PORTANTO INDICA QUE O CONTROLADOR RECEBERÁ REQUISIÇÕES DO TIPO POST NO ENDEREÇO INDICADO ("/update").
+    public String saveUpdate(@RequestParam("titulo")String titulo, @RequestParam("id")int id){ //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO String CHAMADA "saveUpdate()" COM OS PARÂMETRO STRING "titulo" E INT "id" E QUE SERVE PARA ATUALIZAR OS LIVROS DO REPOSITÓRIO
+      Optional<Livro> livro=livrosRepo.findById(id); //BUSCA O LIVRO PELO "id" E VERIFICA SE ELE ESTÁ PRESENTE
+      if(!livro.isPresent()) //SE ELE NÃO ESTIVER PRESENTE
+        return "redirect:/livro/list"; //REDIRECIONA O NAVEGADOR PARA "/livro/list"
+      livro.get().setTitulo(titulo); //SE ELE ESTIVER PRESENTE ELE PEGA O LIVRO E ATUALIZA O NOME DO LIVRO
+      livrosRepo.save(livro.get()); //SALVA O "livro" NO "livrosRepo"
+      return "redirect:/livro/list"; //RETORNA O ENDEREÇO DO "/livro/list.jsp"
+    } //FECHA A FUNÇÃO "saveUpdate()"
 
-@RequestMapping(value = "/update", method = RequestMethod.POST) // Anotação para mapear solicitações da web em métodos em classes de tratamento de solicitações com assinaturas de método flexíveis, marca como essa função pode ser acessada pela web e seu método.
-public String saveUpdate(@RequestParam("titulo") String titulo, @RequestParam("id") int id) { // Cria uma função de retorno público de tipo String com o nome confirmDelete, que recebe o id do livro como parâmetro, essa função serve para atualizar títulos do repositório.
-  Optional<Livro> livro = livrosRepo.findById(id);  // Busca o livro pelo id e marca campo como opcional pra caso o id não seja encontrado.
-  if (!livro.isPresent()) // Define se o livro não for presente, o usuário será redirecionado de volta pra página que está.
-    return "redirect:/livro/list";  // Retorna um redirecionamento para voltar pra lista após a atualização.
-  livro.get().setTitulo(titulo);  // Obtém o livro e atualiza seu título.
-  livrosRepo.save(livro.get()); // Salva o livro no repositório.
 
-  return "redirect:/livro/list";  // Redireciona o usuário de volta pra lista de 
-}//FECHA A FUNÇÃO 
-}
+    @RequestMapping("/delete/{id}") //A ANOTAÇÃO DO REQUEST MAPPING ("@RequestMapping") TEM POR FINALIDADE FAZER O MAPEAMENTO, PORTANTO INDICA QUE O CONTROLADOR RECEBERÁ REQUISIÇÕES NO ENDEREÇO INDICADO ("/delete/{id}"). O {id} é REFERENTE AO ID DO LIVRO
+    public String formDelete(Model model, @PathVariable int id){ //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO String CHAMADA "formDelete()" COM OS PARÂMETRO MODEL "model" E INT "id" E QUE SERVE PARA VERIFICAR SE E POSSÍVEL DELETAR LIVRO REPOSITÓRIO
+      Optional<Livro> livro=livrosRepo.findById(id); //BUSCA O LIVRO PELO "id" E VERIFICA SE ELE ESTÁ PRESENTE
+      if (!livro.isPresent()) //SE ELE NÃO ESTIVER PRESENTE
+        return "redirect:/livro/list"; //REDIRECIONA O NAVEGADOR PARA "/livro/list"
+      model.addAttribute("livro", livro.get()); //ADICIONA O ATRIBUTO "livro" AO MODELO E PEGA O LIVRO
+      return "/livro/delete.jsp"; //RETORNA O ENDEREÇO DO "/livro/delete.jsp"
+    }//FECHA A FUNÇÃO "formDelete()"
+
+
+    @RequestMapping(value="/delete",method=RequestMethod.POST) //A ANOTAÇÃO DO REQUEST MAPPING ("@RequestMapping") TEM POR FINALIDADE FAZER O MAPEAMENTO, PORTANTO INDICA QUE O CONTROLADOR RECEBERÁ REQUISIÇÕES DO TIPO POST NO ENDEREÇO INDICADO ("/delete").
+    public String confirmDelete(@RequestParam("id")int id){ //CRIA UMA FUNÇÃO PÚBLICA COM RETORNO String CHAMADA "confirmDelete()" COM O PARÂMETRO INT "id" E QUE SERVE PARA DELETAR O LIVRO REPOSITÓRIO
+      livrosRepo.deleteById(id); //DELETA O DO REPOSITÓRIO PELO ID DO LIVRO
+      return "redirect:/livro/list"; //REDIRECIONA O NAVEGADOR PARA /livro/list
+      }//FECHA A FUNÇÃO "confirmDelete()"
+
+} //FECHA A CLASSE "LivroController"
