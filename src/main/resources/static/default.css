@@ -1,4 +1,4 @@
-body { 
-    font-family: sans-serif; 
-    color: darkslateblue; 
-}
+body { /*define o corpo*/ 
+    font-family: sans-serif; /* SELECIONA A FONTE SANS-SERIF COMO FONTE DO BODY */
+    color: darkslateblue;  /* ESCOLHE A COR AZUL COMO COR DO BODY */
+} /* fecha o body*/

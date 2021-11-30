@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <!--Indica características CONFIGURAÇÃO DA PAGINA JSP-->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <!--CONFIGURAÇÃO DA PAGINA JSP-->
 
-<!DOCTYPE html> <!--É UMA DECLARAÇÃO PARA INFORMAR AO NAVEGADOR QUAL A VERSÃO DO HTML UTILIZADA-->
+<!DOCTYPE html> <!--É UMA DECLARAÇÃO html-->
 <html>  <!-- FINALIZA O DOCUMENTO HTML-->
     <head> <!-- FINALIZA A TAG HEAD-->
         <meta charset="utf-8" /> <!-- DEFINE A CODIFICAÇÃO COMO UTF-8-->
@@ -9,14 +9,15 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head> <!-- FINALIZA A TAG HEAD-->
     <body> <!-- DEFINE O CORPO DO DOCUMENTO-->
-       <h1>Editar Livro</h1> <!-- EXIBE UM TITULO-->
-           <hr>  <!-- MOSTRA UMA LINHA HORIZONTAL-->
-           <form action= "/livro/update" method="post"> <!-- DECLARA UM FORMULÁRIO COM MÉTODO POST-->
-            <input type="hidden" name="id" value="${livro.id}"/> <!-- CRIA UM CAMPO DE TEXTE OCULTO QUE AUTOMATICAMENTE,  RECEBE O VALOR (ID) DO LIVRO -->
-               <label for="titulo">titulo</label> <!-- CRIA LEGENDA PARA UM ITEM EM UMA INTERFACE DE USUÁRIO, FOR ELEMENTO ID DE UM FORMULÁRIO RELACIONADO COM LABELABLE NO MESMO DOCUMENTO COMO ELEMENTO LABEL-->
+        <main class="container"> <!-- INICIA A TAG MAIN (CONTEÚDO PRINCIPAL DO DOCUMENTO) -->
+            <h1>Editar Livro</h1> <!-- EXIBE UM TÍTULO h1 -->
+            <hr> <!-- MOSTRA UMA LINHA HORIZONTAL NO DOCUMENTO -->
+           <form action= "/livro/update" method="post"> <!-- DECLARA UM FORMULÁRIO COM MÉTODO POST, envia dados para livro/update -->
+            <input type="hidden" name="id" value="${livro.id}"/> <!-- FORNECE UM CAMPO PARA ENTRADA DE DADOS, NO CASO O NOME NO QUAL DESEJA ATUALIZAR O LIVRO  -->
+               <label for="titulo">titulo</label> <!--  DEFINE UM RÓTULO PARA O INPUT-->
 
-               <input type="text" name="titulo" value="${livro.titulo}"/>  <!-- CRIA UM CAMPO DE TEXTE OCULTO QUE AUTOMATICAMENTE,  RECEBE O VALOR (ID) DO LIVRO -->
-               <a href="/livro/list" class="btn btn-warning">Voltar</a>
+               <input type="text" name="titulo" value="${livro.titulo}"/>  <!-- FORNECE UM CAMPO PARA ENTRADA DE DADOS, NO CASO O NOME NO QUAL DESEJA ATUALIZAR O LIVRO  -->
+               <a href="/livro/list" class="btn btn-warning">Voltar</a> <!-- EXIBE UM ÂNCORA ESTILIZADA COM BOOTSTRAP PARA VOLTAR A PÁGINA -->
                <input type="submit" value="Salvar"/> <!-- CRIA UM CAMPO DE TEXTE OCULTO QUE AUTOMATICAMENTE  RECEBE O VALOR SALVAR-->
 
            </form> <!-- FINALIZA O FORMULARIO-->

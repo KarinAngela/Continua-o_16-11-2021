@@ -1,13 +1,13 @@
-package application;  //Pacote responsável por fazer a intermediação 
+package application;  //ELE CRIA O PACOTE APPLICATION
 
-import org.springframework.boot.SpringApplication; //IMPORTAÇÃO  É RESPONSÁVEL POR SpringApplication
-import org.springframework.boot.autoconfigure.SpringBootApplication; //IMPORTAÇÃO  É RESPONSÁVEL POR SpringBootApplication
+import org.springframework.boot.SpringApplication; //IMPORTAÇÃO  É RESPONSÁVEL POR SpringApplication DO SPRING BOOT
+import org.springframework.boot.autoconfigure.SpringBootApplication; //IMPORTAÇÃO  É RESPONSÁVEL POR SpringBootApplication do SPRING BOOT
 
-@SpringBootApplication  //O TRABALHO DO SPRINGBOOT É CONFIGURAR E PROPORCIONAR AO DESENVOLVEDOR QUE SUA APLICAÇÃO SEJA EXECUTADA O MAIS RAPIDO POSSIVEL 
+@SpringBootApplication  //ANOTAÇÃO spring boot application
 public class Application {  //DECLARANDO A CLASSE Application 
-    public static void main(String[] args) { //METODO PRINCIPAL DO PROJETO
-        SpringApplication.run(Application.class, args); //ELE É RESPONSAVEL POR DA UM BOOT NA APLICAÇÃO JAVA 
+    public static void main(String[] args) { //cria o metodo main do projeto retorno void
+        SpringApplication.run(Application.class, args); //responsavel por incializar a aplicação do spring boot 
     
-    }
+    } //fecha o metodo maina
 
-}
+} //fecha a classe application 
