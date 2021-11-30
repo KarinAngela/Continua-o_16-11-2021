@@ -19,7 +19,7 @@ public class Livro { // DECLARANDO A CLASSE Livro
     public int getId() { //SE REFERE EM LER A INFORMAÇÃO DE NÚMERO INTEIROS 
         return id; //o return serve para retornar algo de dentro do método que seria o id
     }
-    public void setId(int id) { ///USADO PARA NÃO DUBPLICAR O NÚMERO INTEIRO
+    public void setId(int id) { //USADO PARA NÃO DUBPLICAR O NÚMERO INTEIRO
         this.id = id; // THIS É USADA PARA REFERENCIAR A INSTÂNCIA ATUAL DO MÉTODO id
 
     }
@@ -28,8 +28,8 @@ public class Livro { // DECLARANDO A CLASSE Livro
     }
     public void setTitulo(String titulo) { //USADO PARA NÃO DUBPLICAR O Titulo
         this.titulo = titulo; //THIS É USADA PARA REFERENCIAR A INSTÂNCIA ATUAL DO MÉTODO (titulo)
-}
+    }
 
 
-    
+
 }
